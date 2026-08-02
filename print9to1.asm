@@ -1,23 +1,22 @@
 .model small
 .stack 100h
 .code
-
 main proc
-
-    mov cl,9        ; শুরু 9 থেকে
-
-again:
+    mov bl,9
+    
+    again:
+    
     mov ah,2
-    mov dl,cl
-    add dl,30h      ; ASCII তে রূপান্তর
+    mov dl,bl
+    add dl,30h
     int 21h
-
-    dec cl          ; CL = CL - 1
-    cmp cl,0        ; 0 হয়েছে?
-    jne again       ; না হলে আবার Loop
-
-    mov ah,4Ch
+    
+    dec bl
+    cmp bl,1
+    jne again
+    
+    exit:
+    mov ah,4ch
     int 21h
-
-main endp
-end main
+    main endp
+end mai
